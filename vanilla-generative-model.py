@@ -14,7 +14,7 @@ def gated(x):
 
 class WaveNet(Chain):
     def __init__(self):
-        super(WaveNet3, self).__init__(
+        super(WaveNet, self).__init__(
             dc00=L.Convolution2D(1, 1, (2, 1), pad=(1, 0), use_cudnn=False),
             dc01=L.Convolution2D(None, 2, (2, 1), pad=(1, 0), use_cudnn=False),
             dc02=L.Convolution2D(None, 2, (2, 1), pad=(1, 0), use_cudnn=False),
@@ -244,7 +244,7 @@ for loc in range(x_sample.data.shape[2])[1024:]:
     if loc % 200 == 0:
         print(loc)
 
-wavfile.write('result.wav', 8000,
+wavfile.write('result.wav', fs,
               (cuda.to_cpu(x_sample.data)*scale).astype(np.int16).reshape((-1,
                                                                            )))
 
