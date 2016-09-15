@@ -207,7 +207,7 @@ t = cuda.to_gpu(t)
 bias = cuda.cupy.array([0, 1], dtype=np.float32)
 
 SCE = lambda y, t: F.softmax_cross_entropy(y, t, use_cudnn=False)
-model = L.Classifier(WaveNet3(), SCE)
+model = L.Classifier(WaveNet(), SCE)
 model.to_gpu()
 
 for i in model.predictor.links():
