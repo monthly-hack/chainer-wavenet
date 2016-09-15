@@ -8,4 +8,4 @@ Python 3
 
 Chainer
 
-μ-law AIFF file (as a dataset)
+Monoral μ-law AIFF file (as a dataset)
